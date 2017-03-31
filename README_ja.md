@@ -5,6 +5,7 @@ Japanese/ [English](README.md)
 ## 概要
 
 Markdownファイル(\*.md)から Office Open XML Document フォーマット(\*.docx)を作るサンプル。
+詳細については[Qiitaに書いた解説](http://qiita.com/kaityo256/items/7794a671d2ff8d00e603)を参照のこと。
 
 ## 注意
 
