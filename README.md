@@ -4,7 +4,7 @@
 
 ## Summary
 
-Convert Markdown (*.md) to Office Open XML Document (*.docx).
+Convert Markdown (\*.md) to Office Open XML Document (\*.docx).
 
 ## Disclaimer
 
