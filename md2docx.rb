@@ -146,7 +146,6 @@ end
 args = parse_option
 input_file = args.fetch(:input, "input.md")
 template_file = args.fetch(:template, "template.docx")
-
 output_file = args.fetch(:output, "output.docx")
 
 Dir.mktmpdir(nil, "./") do |dir|
