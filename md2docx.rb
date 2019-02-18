@@ -1,3 +1,4 @@
+require 'optparse'
 require 'rubygems'
 require 'tmpdir'
 require 'rexml/document'
@@ -133,17 +134,29 @@ class MD2XML
   end
 end
 
-outputfile = "output.docx"
-templatefile = "template.docx"
-inputfile = "input.md"
+def parse_option
+  args = {}
+  OptionParser.new do |op|
+    op.on("-i [input]", "--input [input file]") { |v| args[:input] = v }
+    op.on("-t [template]", "--template [template file]") { |v| args[:template] = v }
+    op.on("-o [output]", "--output [output file]") { |v| args[:output] = v }
+    op.parse!(ARGV)
+  end
+  args
+end
+
+args = parse_option
+input_file = args.fetch(:input, "input.md")
+template_file = args.fetch(:template, "template.docx")
+output_file = args.fetch(:output, "output.docx")
 
 Dir.mktmpdir(nil,'./') do |dir|
-  puts "Using #{templatefile}"
-  `cd #{dir};unzip ../#{templatefile}`
+  puts "Using #{template_file}"
+  `cd #{dir};unzip ../#{template_file}`
   files = Dir.glob(dir+"/*").map{|f| File.basename(f)}
-  puts "Reading #{inputfile}"
-  MD2XML.new.convert(dir,inputfile)
-  puts "Generating #{outputfile}"
-  `cd #{dir};zip -r ../#{outputfile} #{files.join(" ")}`
+  puts "Reading #{input_file}"
+  MD2XML.new.convert(dir,input_file)
+  puts "Generating #{output_file}"
+  `cd #{dir};zip -r ../#{output_file} #{files.join(" ")}`
   puts "Done."
 end
