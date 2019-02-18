@@ -1,6 +1,8 @@
-Japanese/ [English](README.md)
-
 # マークダウン(\*.md)からワードファイル(\*.docx)を作るスクリプト
+
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
+Japanese/ [English](README.md)
 
 ## 概要
 
@@ -14,7 +16,7 @@ Markdownファイル(\*.md)から Office Open XML Document フォーマット(\*
 ## ファイル
 
 * `md2docx.rb` スクリプト
-* `input.md`  入力Markdownファイル
+* `sample.md`  入力Markdownファイルのサンプル
 * `template.docx` テンプレートdocxファイル
 
 ## サポートしているフォーマット
@@ -37,16 +39,24 @@ Markdownファイル(\*.md)から Office Open XML Document フォーマット(\*
 
 ## 使い方
 
-```
+```sh
 $ ruby md2docx.rb
-Using template.docx
-Reading input.md
-Generating output.docx
-Done.
+Usage: md2docx [options] file
+    -t, --template [template file]
+    -o, --output [output file]
 ```
+
+入力としてマークダウンファイル(`*.md`)を要求します。テンプレートを省略すると`template.docx`が仮定されます。出力を省略すると、入力ファイルの拡張子を`.docx`に変えたものになります。
 
 ## 出力結果
 
-スクリプトを実行すると、以下のようなoutput.docxが出力されます。
+```sh
+$ ruby md2docx.rb sample.md
+Using template.docx
+Reading sample.md
+Generating sample.docx
+Done.
 
-![output.png](output.png)
+上記のように実行すると、以下のようなsample.docxが出力されます。
+
+![sample.png](sample.png)

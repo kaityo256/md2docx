@@ -1,6 +1,8 @@
-[Japanese](README_ja.md)/ English
+# Convert Markdown to Docx
 
-# Sample code to convert Markdown to Docx
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
+[Japanese](README_ja.md)/ English
 
 ## Summary
 
@@ -13,7 +15,7 @@ USE THIS SCRIPT AT YOUR OWN RISK.
 ## Files
 
 * `md2docx.rb` Convert script
-* `input.md` Input makrdown file
+* `sample.md` Sample markdown file
 * `template.docx` Template file
 
 ## Supporting Formats
@@ -40,14 +42,23 @@ Following items up to 3rd depth.
 
 ## Usage
 
-```
+```sh
 $ ruby md2docx.rb
-Using template.docx
-Reading input.md
-Generating output.docx
-Done.
+Usage: md2docx [options] file
+    -t, --template [template file]
+    -o, --output [output file]
 ```
 
 ## Results
 
-![output.png](output.png)
+```sh
+$ ruby md2docx.rb sample.md
+Using template.docx
+Reading sample.md
+Generating sample.docx
+Done.
+```
+
+If you run the above, you will have the following `sample.docx`.
+
+![sample.png](sample.png)

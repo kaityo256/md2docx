@@ -133,20 +133,32 @@ class MD2XML
 end
 
 def parse_option
-  args = {}
+  opts = {}
+  args = []
   OptionParser.new do |op|
-    op.on("-i [input]", "--input [input file]") { |v| args[:input] = v }
     op.on("-t [template]", "--template [template file]") { |v| args[:template] = v }
     op.on("-o [output]", "--output [output file]") { |v| args[:output] = v }
-    op.parse!(ARGV)
+    op.banner += " file"
+    args = op.parse!(ARGV)
+    if args.empty?
+      puts op.help
+      exit
+    end
   end
-  args
+  [opts, args]
 end
 
-args = parse_option
-input_file = args.fetch(:input, "input.md")
-template_file = args.fetch(:template, "template.docx")
-output_file = args.fetch(:output, "output.docx")
+opts, args = parse_option
+
+input_file = args[0]
+unless File.exist?(input_file)
+  puts "#{input_file}: No such file or directory"
+  exit
+end
+
+template_file = opts.fetch(:template, "template.docx")
+output_default = Pathname(input_file).sub_ext(".docx")
+output_file = opts.fetch(:output, output_default)
 
 Dir.mktmpdir(nil, "./") do |dir|
   puts "Using #{template_file}"
