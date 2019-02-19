@@ -105,4 +105,4 @@ If you run the above, you will have the following `sample.docx`.
 
 ![sample.png](sample.png)
 
-It contains Japanese Hiragana since the template file contains it.
+It contains Japanese Katakana since the template file contains it.
