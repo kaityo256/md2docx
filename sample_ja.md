@@ -1,12 +1,12 @@
-# md2docx sample file
+# md2docxのサンプル
 
-## Paragraph
+## パラグラフ
 
-This is a paragraph.
+ここはパラグラフです。
 
-## list
+## リスト
 
-### Numeric item
+### 番号付きリスト
 
 1. hoge1
     1. hoge2.1
@@ -15,7 +15,7 @@ This is a paragraph.
     1. fuga2.1
     1. fuga2.2
 
-### Bullet items
+### 箇条書き
 
 * bullet1
     * bullet2
@@ -24,7 +24,7 @@ This is a paragraph.
     * bullet2
         * bullet3
 
-### Mixed
+### まざったもの
 
 * bullet1
     1. enum1

@@ -8,6 +8,8 @@ Japanese/ [English](README.md)
 
 Markdownファイル(\*.md)から Office Open XML Document フォーマット(\*.docx)を作るサンプル。
 詳細については[Qiitaに書いた解説](http://qiita.com/kaityo256/items/7794a671d2ff8d00e603)を参照のこと。
+ヘッダ、箇条書き、数字付きリスト、それぞれ深さ3レベルまでしかサポートしていません。
+コードのシンタックスハイライトなどもできません。
 
 ## 注意
 
@@ -50,13 +52,52 @@ Usage: md2docx [options] file
 
 ## 出力結果
 
+例えばこんなファイルを食わせます。
+
+```md
+# md2docxのサンプル
+
+## パラグラフ
+
+ここはパラグラフです。
+
+## リスト
+
+### 番号付きリスト
+
+1. hoge1
+    1. hoge2.1
+    1. hoge2.2
+1. fuga1
+    1. fuga2.1
+    1. fuga2.2
+
+### 箇条書き
+
+* bullet1
+    * bullet2
+        * bullet3
+* bullet1
+    * bullet2
+        * bullet3
+
+### まざったもの
+
+* bullet1
+    1. enum1
+        * bullet3
+    1. enum2
+```
+
+これを以下のようにしてdocxに変換できます。
+
 ```sh
-$ ruby md2docx.rb sample.md
 Using template.docx
-Reading sample.md
-Generating sample.docx
+Reading sample_ja.md
+Generating sample_ja.docx
 Done.
+```
 
-上記のように実行すると、以下のようなsample.docxが出力されます。
+以下のようなsample_ja.docxが出力されます。
 
-![sample.png](sample.png)
+![sample_ja.png](sample_ja.png)

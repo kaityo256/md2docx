@@ -6,7 +6,10 @@
 
 ## Summary
 
-Convert Markdown (\*.md) to Office Open XML Document (\*.docx).
+A sample script which converts Markdown (\*.md) to Office Open XML Document (\*.docx).
+It only supports headers, bullet items, and numeric items up to 3rd depth.
+
+Please find the explanation of how it works written in Japanese [here](http://qiita.com/kaityo256/items/7794a671d2ff8d00e603).
 
 ## Disclaimer
 
@@ -51,6 +54,45 @@ Usage: md2docx [options] file
 
 ## Results
 
+Here is the sample input file.
+
+```md
+# md2docx sample file
+
+## Paragraph
+
+This is a paragraph.
+
+## list
+
+### Numeric item
+
+1. hoge1
+    1. hoge2.1
+    1. hoge2.2
+1. fuga1
+    1. fuga2.1
+    1. fuga2.2
+
+### Bullet items
+
+* bullet1
+    * bullet2
+        * bullet3
+* bullet1
+    * bullet2
+        * bullet3
+
+### Mixed
+
+* bullet1
+    1. enum1
+        * bullet3
+    1. enum2
+```
+
+You can convert the above via following command.
+
 ```sh
 $ ruby md2docx.rb sample.md
 Using template.docx
@@ -62,3 +104,5 @@ Done.
 If you run the above, you will have the following `sample.docx`.
 
 ![sample.png](sample.png)
+
+It contains Japanese Hiragana since the template file contains it.
